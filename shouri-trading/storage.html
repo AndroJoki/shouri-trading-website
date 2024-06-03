@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shouri Trading</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/c03b4777ff.js" crossorigin="anonymous"></script>
+    
+<style>
+    
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+	margin: 10px;
+	font-size: 60px;
+	color: white;
+	text-shadow: 1px 1px 2px black, 0 0 25px rgba(236,64,0,255);
+	text-align: center;
+}
+
+#footer {
+	font-family: 'Courier New', monospace;
+	overflow: hidden;
+	background-color: #333;
+	color: white;
+}
+
+#footertxt {
+	margin: 10px;
+	font-size: 30px;
+	color: rgba(236,64,0,255);
+	text-align: center;
+	text-decoration-line: overline;
+}
+        
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 45px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.drpdwn {
+  float: right;
+  overflow: hidden;
+}
+
+.drpdwn .drpbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 45px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.drpdwn-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: -30px;
+}
+
+.drpdwn-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.topnav a:hover, .drpdwn:hover .drpbtn {
+  color: rgba(236,64,0,255);
+}
+
+.drpdwn-content a:hover {
+  color: rgba(236,64,0,255);
+}
+
+.drpdwn:hover .drpdwn-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .drpdwn .drpbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: right;
+	padding-top: 14px;
+  }
+  .topnav.responsive .drpdwn {float: none;}
+  .topnav.responsive .drpdwn-content {position: relative;}
+  .topnav.responsive .drpdwn .drpbtn {
+    display: block;
+    width: 100%;
+    text-align: right;
+	padding-top: 14px;
+  }
+}
+
+#navlogo {
+	height: 100px; 
+	width: 200px;
+	position: absolute;
+	transform: translate(50px, -110px);
+}
+
+.coverimg {
+    display: block;
+    background: url(cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+background.coverimg {
+    opacity: 0.7;
+}
+
+.headerlogo {
+    display: inline-block;
+    max-width:  700px;
+    width: 70%;
+    height: auto;
+    opacity: 0.7;
+    margin-top: 80px; 
+    margin-bottom: 100px;  
+}
+
+.promo {
+	display: inline-block;
+	max-width:  1000px;
+	max-height: 800px;
+    width: 100%;
+	height: auto;
+	border-radius: 15px 50px;
+	float: left;
+	box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+	transition: all .2s ease-in-out
+}
+
+.promo:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 19px 43px;
+  transform: translate3d(0px, -2px, 0px);
+}
+
+.content {
+	text-shadow: 2px 2px 5px grey;
+	color: rgba(236,64,0,255);
+	font-size: 40px;
+	text-align: center;
+}
+
+.abtn {
+	background-color: rgba(236,64,0,255);
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	border-radius: 12px;
+}
+
+.abtn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  transform: translate3d(0px, -1px, 0px);
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+.gradient-background {
+  background: linear-gradient(265deg,#ec4000,#ffffff,#000000);
+  background-size: 180% 180%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.category img {
+	max-width:  100px;
+    width: 100%;
+	height: auto;
+	border-radius: 15px 50px;
+	box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+	transition: all .2s ease-in-out
+}
+
+.category img:hover {
+	box-shadow: rgba(0, 0, 0, 0.6) 0px 19px 43px;
+	transform: translate3d(0px, -2px, 0px);
+}
+
+.itemcard {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: all .2s ease-in-out
+}
+
+.itemcard img {
+	max-width: 350px;
+	max-height: 200px;
+	width: 100%;
+	height: auto;
+}
+
+.itemcard:hover {
+	box-shadow: rgba(0, 0, 0, 0.6) 0px 19px 43px;
+	transform: translate3d(0px, -2px, 0px);
+}
+
+.cardtext {
+  padding: 2px 16px;
+}
+
+.origprice {
+	color: LightGrey;
+	text-decoration: line-through;
+}
+
+ul a {
+	text-decoration: none;
+	color: white;
+}
+
+ul a:hover {
+	color: white;
+}
+
+
+</style>    
+</head>
+
+<body>
+    
+<!-- Navigation Bar -->
+<div class="topnav" id="myTopnav">
+	<a href="#"></a>
+	<a href="gallery.html">Gallery</a>
+	<a href="shop.html" style="color: rgba(236,64,0,255);">Shop</a>
+	<div class="drpdwn">
+    <button class="drpbtn">About 
+		<i class="fa fa-caret-down"></i>
+    </button>
+		<div class="drpdwn-content">
+			<a href="about.html">About Us</a>
+			<a href="contact.html">Contact Us</a>
+		</div>
+	</div> 
+	<a href="index.html">Home</a>
+	<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+<img src="logo.png" id="navlogo">
+<!-- Navigation Bar -->
+
+<!-- Cover Page -->
+<div class="gradient-background">
+
+  <center>
+	<img style="border-radius: 50px; padding: 20px; width:30%;height:auto;" src="storage.png">
+	<img src="storagegif.gif" style="width:40%;height:auto;">
+  </center>
+
+</div>
+<!-- Cover Page -->
+
+<br>
+
+<!-- Categories -->
+<div class="container-fluid">
+	<h1 class="content">Categories</h1>
+	<table style="width:100%;">
+		<tr class="category">
+			<td><center><h1 class="content">See What's New</h1><a href="newarriv.html"><img src="newarriv.png"></a></center></td>
+			<td><center><h1 class="content">On Sale Now!</h1><a href="sale.html"><img src="onsale.png"></a></center></td>
+		</tr>
+		
+		<tr>
+			<td><br> </td>
+			<td><br> </td>
+		</tr>
+		
+		<tr class="category">
+			<td><center><h1 class="content">Chairs & Seating</h1><a href="chairs.html"><img src="chair.png"></a></center></td>
+			<td><center><h1 class="content">Desk & Tables</h1><a href="tables.html"><img src="table.png"></a></center></td>
+		</tr>
+		
+		<tr>
+			<td><br> </td>
+			<td><br> </td>
+		</tr>
+		
+		<tr class="category">
+			<td><center><h1 class="content">Electronics</h1><a href="electronics.html"><img src="devices.png"></a></center></td>
+			<td><center><h1 class="content">Housewares & Decor</h1><a href="decor.html"><img src="decor.png"></a></center></td>
+		</tr>
+		
+		<tr>
+			<td><br> </td>
+			<td><br> </td>
+		</tr>
+		
+		<tr class="category">
+			<td><center><h1 class="content">Storage & Shelves</h1><a href="storage.html"><img src="storage.png"></a></center></td>
+			<td><center><h1 class="content">Miscellaneous</h1><a href="miscell.html"><img src="miscell.png"></a></center></td>
+		</tr>
+		
+	</table>
+</div>
+<!-- Categories -->
+
+<br>
+<hr>
+<!-- Items -->
+<div class="container-fluid">
+	<h1 class="content">Available Items</h1>
+	<div class="row">
+		<div class="col-sm-4" style="padding: 10px;">
+		<center>
+			<div class="itemcard" style="width:50%">
+				<img src="cabinet.jpg" >
+				<div class="cardtext">
+					<p> Light Brown Drawer</p>
+					<h4 class="origprice">P1999.00</h4><h3><b>P1699.00&nbsp;&nbsp;&nbsp;&nbsp;15% off</b></h3>
+				</div>
+			</div>
+			</center>
+		</div>
+		
+		<div class="col-sm-4" style="padding: 10px;">
+		<center>
+			<div class="itemcard" style="width:50%">
+				<img src="cabinet1.jpg" >
+				<div class="cardtext">
+					<p>Dark Brown Cabinet</p>
+					<h3><b>P1999.00</b></h3>
+				</div>
+			</div>
+			</center>
+		</div>
+		<div class="col-sm-4" style="padding: 10px;">
+		<center>
+			<div class="itemcard" style="width:50%">
+				<img src="cabinet2.jpg" >
+				<div class="cardtext">
+					<p>Red Cabinet</p>
+					<h3><b>P2999.00</b></h3>
+				</div>
+			</div>
+			</center>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-4" style="padding: 10px;">
+		<center>
+			<div class="itemcard" style="width:50%">
+				<img src="cabinet3.jpg" >
+				<div class="cardtext">
+					<p>Dark Brown Cabinet</p>
+					<h4 class="origprice">P2999.00</h4><h3><b>P2099.00&nbsp;&nbsp;&nbsp;&nbsp;20% off</b></h3>
+				</div>
+			</div>
+			</center>
+		</div>
+		
+		<div class="col-sm-4" style="padding: 10px;">
+		<center>
+			<div class="itemcard" style="width:50%">
+				<img src="cabinet4.jpg" >
+				<div class="cardtext">
+					<p>Wooden Cabinet</p>
+					<h3><b>P1999.00</b></h3>
+				</div>
+			</div>
+			</center>
+		</div>
+	</div>
+</div>
+<!-- Items -->
+
+<br>
+
+<!-- Footer --> 
+<div class="container-fluid" id="footer">
+	<div class="row">
+		<div class="col-sm-4">
+			<h1 id="footertxt"><br>About Us</h1>
+			<p style="text-align: justify;">Shouri Trading is a collection of brand new and slightly used quality items from Japan.  
+			We sell furniture, toys, bags, tools, school supplies, ceramics and more. Buyers have direct access to the 
+			cheap surplus equipment deals, all in one place. 
+			Purchase confidently from trusted and reputable seller-organizations on a secure, transparent, and efficient platform.</p>
+		</div>
+		<div class="col-sm-4">
+			<h1 id="footertxt"><br>Quick Links</h1>
+			<ul style="list-style-type:none; text-align: center;">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+				<li><a href="shop.html">Shop</a></li>
+				<li><a href="gallery.html">Gallery</a></li>
+				<li><a href="newarriv.html">New Arrivals</a></li>
+				<li><a href="sale.html">On Sale</a></li>
+				<li><a href="chairs.html">Chairs & Seating</a></li>
+				<li><a href="tables.html">Desk & Tables</a></li>
+				<li><a href="electronics.html">Electronics</a></li>
+				<li><a href="decor.html">Housewares & Decor</a></li>
+				<li><a href="storage.html">Storage & Shelves</a></li>
+				<li><a href="miscell.html">Miscellaneous</a></li>
+			</ul> 
+		</div>
+		<div class="col-sm-4">
+			<h1 id="footertxt"><br>Contacts</h1>
+			<p><i class="fa-solid fa-map-location-dot"></i>&nbsp;&nbsp;Km. 7 Bangkal Davao City</p>
+			<p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;0906 560 5642</p>
+			<p><i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;danmichael18@gmail.com</p>
+			
+			<a style="text-decoration: none; font-size: 30px; color: white;" href="https://www.facebook.com/ShouriTrading"><i class="fa-brands fa-facebook"></i></a> 
+			<a style="text-decoration: none; font-size: 30px; color: white;" href="https://www.instagram.com/shouritrading/"><i class="fa-brands fa-instagram"></i></a> 
+		</div>
+	</div>
+	<br><br>
+	<div class="row">
+		<div class="col-sm-12">
+		<p style="text-align: center;">Copyright © 2022 Nicholas Andrew Joquino. All rights reserved.</p>
+		</div>
+	</div>
+</div>
+<!-- Footer --> 
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+
+</html>
